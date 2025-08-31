@@ -1,0 +1,37 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #0b0c1a, #0f1020 40%, #14162b 100%);
+  color: white;
+}
+
+header {
+  background-color: transparent;
+  color: white;
+  font-weight: bolder;
+  padding: 10px;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+}
+a{
+  list-style: none;
+  text-decoration: none;
+  color: white;
+}
+hr{
+  /* visibility: hidden; */
+  opacity: 0.3;
+}
+
+.main{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Default title{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "test.css" %}">
+  </head>
+  <body>
+    {% comment %} header {% endcomment %} {% comment %} {% endcomment %}
+    <header>
+      <nav class="main">
+        <div class="logo">
+          <img
+            src="https://cdn.freebiesupply.com/logos/large/2x/django-logo-png-transparent.png"
+            width="20"
+            alt=""
+          />
+        </div>
+        <div>
+          <ul class="links">
+            <li> <a href="">Home </a></li>
+            <li> <a href="">About </a></li>
+            <li> <a href="">Contact </a></li>
+            <hr />
+          </ul>
+        </div>
+      </nav>
+    </header>
+    {% block content %} {% endblock %}
+  </body>
+</html>
