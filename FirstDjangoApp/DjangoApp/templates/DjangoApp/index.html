@@ -2,4 +2,13 @@
 {% block title %}Home Page{% endblock title %}
 {% block content %}
 <h1>Chai aur code home page</h1>
+{% for chai in chais %}
+<h1>{{ chai.name }}</h1>
+<img src={{chai.image.url}} width="40" alt="">
+<a href=" {% url "details" chai.id %} ">
+  <button class="border cursor-pointer border-amber-400 p-1 rounded">
+    check it
+  </button>
+</a>
+{% endfor %}
 {% endblock %}
