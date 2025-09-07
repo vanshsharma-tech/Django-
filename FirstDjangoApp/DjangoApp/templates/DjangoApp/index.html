@@ -1,14 +1,27 @@
-{% extends "layout.html" %} 
-{% block title %}Home Page{% endblock title %}
+{% extends "layout.html" %}
+
+{% block title %}🍵 Chai Aur Code{% endblock title %}
+
 {% block content %}
-<h1>Chai aur code home page</h1>
-{% for chai in chais %}
-<h1>{{ chai.name }}</h1>
-<img src={{chai.image.url}} width="40" alt="">
-<a href=" {% url "details" chai.id %} ">
-  <button class="border cursor-pointer border-amber-400 p-1 rounded">
-    check it
-  </button>
-</a>
-{% endfor %}
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-6 text-center">🍵 Chai Aur Code Home Page</h1>
+
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {% for chai in chais %}
+    <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-xl transition duration-300">
+      <img src="{{ chai.image.url }}" alt="{{ chai.name }}" class="w-full h-40 object-cover">
+
+      <div class="p-4">
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ chai.name }}</h2>
+
+        <a href="{% url 'details' chai.id %}">
+          <button class="bg-amber-500 cursor-pointer hover:bg-amber-600 text-white px-4 py-2 rounded-lg transition">
+            Check it
+          </button>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}

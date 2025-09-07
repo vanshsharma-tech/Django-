@@ -1,9 +1,64 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Chai description page
+Chai Description Page
 {% endblock %}
 
 {% block content %}
-<p> {{chai.description}} </p>
+<div class="container mx-auto px-4 py-10">
+  <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden">
+
+    <!-- Image -->
+    <img src="{{ chai.image.url }}" alt="{{ chai.name }}" class="w-full h-72 object-cover">
+
+    <!-- Content -->
+    <div class="p-6">
+      <!-- Title -->
+      <h1 class="text-3xl font-bold text-gray-800 mb-2">{{ chai.name }}</h1>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2 mb-4">
+        {% for tag in chai.tags.all %}
+          <span class="bg-amber-100 text-amber-800 text-sm font-medium px-3 py-1 rounded-full">
+            {{ tag.name }}
+          </span>
+        {% endfor %}
+      </div>
+
+      <!-- Description -->
+      <p class="text-gray-600 leading-relaxed mb-6">
+        {{ chai.description }}
+      </p>
+
+      <!-- Price & Rating -->
+      <div class="flex items-center justify-between mb-6">
+        <span class="text-2xl font-semibold text-amber-600">₹{{ chai.price }}</span>
+
+        <!-- Rating (example: dynamic stars loop) -->
+        <div class="flex">
+          {% for i in "12345" %}
+            {% if forloop.counter <= chai.rating %}
+              <span class="text-yellow-400 text-xl">★</span>
+            {% else %}
+              <span class="text-gray-300 text-xl">☆</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex justify-between items-center">
+        <a href="{% url 'all_chai' %}">
+          <button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg transition">
+            ← Back
+          </button>
+        </a>
+
+        <button class="px-6 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition">
+          Order Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
